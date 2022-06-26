@@ -1,0 +1,7 @@
+node_modules
+test-folder/
+
+pids
+logs
+results
+coverage
