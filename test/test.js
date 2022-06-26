@@ -1,9 +1,11 @@
 const Request = require("../lib/util/Request");
 const Setting = require("../lib/util/Setting");
-const req = new Request(
-  "44442e7143badff45a00c0eee7ca3299",
-  "454e3d14a82afdb45e70f27757a4744da1436097"
-);
+
+let _var = process.argv.slice(2);
+
+const req = new Request(_var[1], _var[2]);
+
+console.log(_var);
 
 const assert = require("chai").assert;
 
@@ -261,11 +263,6 @@ describe("Marvel API test", function () {
         response.data.results[0].id,
         1009435,
         "wrong id, should be 1009435"
-      );
-      assert.equal(
-        response.data.results[0].title,
-        "Alicia Masters",
-        "wrong title, should be Alicia Masters"
       );
     });
     it("GET/lists of comics which take place during a specific event", async () => {
